@@ -1,17 +1,32 @@
 ```cpp
 for(int i = 0; i < n; ++i) {
-  c[i] = 0;
+  C[i] = 0;
   for(int j = 0; i < n; ++j) {
-    c[i] += A[i][j] * b[j];
+    C[i] += A[i][j] * B[j];
   }
 }
 ```
 ```cpp
 for(int i = 0; i < n; ++i) {
   for(int j = 0; i < n; ++j) {
-    c[i][j] = 0;
+    C[i][j] = 0;
     for(int k = 0; k < n; ++k) {
-      c[i][j] += A[i][k] * B[k][j];
+      C[i][j] += A[i][k] * B[k][j];
+    }
+  }
+}
+```
+```cpp
+for(int i = 0; i < n; ++i) {
+  for(int j = 0; i < n; ++j) {
+    Bt[i][j] = B[j][i];
+  }
+}
+for(int i = 0; i < n; ++i) {
+  for(int j = 0; i < n; ++j) {
+    C[i][j] = 0;
+    for(int k = 0; k < n; ++k) {
+      C[i][j] += A[i][k] * Bt[k][j];
     }
   }
 }
